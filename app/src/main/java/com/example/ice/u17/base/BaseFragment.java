@@ -1,8 +1,7 @@
 package com.example.ice.u17.base;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.support.v4.app.Fragment;
 
 import java.lang.ref.WeakReference;
 
@@ -11,20 +10,27 @@ import java.lang.ref.WeakReference;
  * ice is a big cow?
  */
 
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements BaseView{
+/**
+ * BaseFragment have't test
+ * @param <P>
+ */
+public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView {
+
     private WeakReference<P> weakReference;
 
     protected abstract P createPresenter();
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         P presenter = createPresenter();
         weakReference = new WeakReference<>(presenter);
         presenter.bindView(this);
     }
+
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onDetach() {
+        super.onDetach();
         weakReference.clear();
     }
 

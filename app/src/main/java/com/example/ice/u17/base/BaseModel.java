@@ -7,9 +7,9 @@ package com.example.ice.u17.base;
 
 public interface BaseModel {
 
-    void getDataFromNet(OnLoadNetCompleteListener onLoadCompleteListener, String className);
+    void getDataFromNet(OnLoadNetDataCompleteListener onLoadNetDataCompleteListener, String dataName);
 
-    interface OnLoadNetCompleteListener<B extends BaseBean> {
-        void onLoadNetComplete(B bean);
+    interface OnLoadNetDataCompleteListener<B extends BaseBean> {
+        void onLoadNetDataComplete(B bean);
     }
 }

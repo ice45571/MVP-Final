@@ -15,11 +15,11 @@ import retrofit2.Response;
  */
 
 public class HomeApi {
-    public static void getBoutiqueListNewBean(final CustomCallBack<BoutiqueListNewBean> customCallBack) {
+    public static void getBoutiqueListNewBean(final OnLoadNetDataSuccessListener<BoutiqueListNewBean> onLoadNetDataSuccessListener) {
         Api.getHomeService().getBoutiqueListNewBean().enqueue(new Callback<BaseResult<BoutiqueListNewBean>>() {
             @Override
             public void onResponse(Call<BaseResult<BoutiqueListNewBean>> call, Response<BaseResult<BoutiqueListNewBean>> response) {
-                customCallBack.onSuccess(response.body().data.returnData);
+                onLoadNetDataSuccessListener.onSuccess(response.body().data.returnData);
             }
 
             @Override

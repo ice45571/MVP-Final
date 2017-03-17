@@ -5,7 +5,7 @@ package com.example.ice.u17.base;
  * ice is a big cow?
  */
 
-public abstract class BasePresenter<M extends BaseModel, V extends BaseActivity>{
+public abstract class BasePresenter<M extends BaseModel, V extends BaseView>{
 
     private M model;
     private V view;

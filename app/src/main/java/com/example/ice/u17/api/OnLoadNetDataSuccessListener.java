@@ -5,6 +5,6 @@ package com.example.ice.u17.api;
  * ice is a big cow?
  */
 
-public interface CustomCallBack<T> {
+public interface OnLoadNetDataSuccessListener<T> {
     void onSuccess(T t);
 }
