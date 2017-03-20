@@ -1,6 +1,7 @@
 package com.example.ice.u17.view;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.ice.u17.R;
 import com.example.ice.u17.base.BaseActivity;
@@ -9,7 +10,7 @@ import com.example.ice.u17.bean.BoutiqueListNewBean;
 import com.example.ice.u17.bean.TestBean;
 import com.example.ice.u17.presenter.MainPresenter;
 
-public class MainActivity extends BaseActivity<MainPresenter>{
+public class MainActivity extends BaseActivity<MainPresenter> implements View.OnClickListener {
 
     @Override
     protected MainPresenter createPresenter() {
@@ -23,6 +24,7 @@ public class MainActivity extends BaseActivity<MainPresenter>{
 
         getPresenter().requestModeGetBoutiqueListNewBean();
 
+
     }
 
     @Override
@@ -32,5 +34,9 @@ public class MainActivity extends BaseActivity<MainPresenter>{
         } else if (baseBean instanceof TestBean) {
 
         }
+    }
+
+    @Override
+    public void onClick(View v) {
     }
 }
